@@ -1,0 +1,10 @@
+.App {
+	flex-grow: 3;
+	text-align: center;
+}
+body{
+	background-color: green;
+}
+.card {
+	width: 345px;
+}
