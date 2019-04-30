@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './App.css'
 import Box from './Box'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 class App extends React.Component {
 	constructor(props) {
     super(props)
 		this.state = {
-			dataList: []}
-
+			dataList: []
+		}
 	}
 
 	callAPI = () => {
@@ -27,14 +28,22 @@ class App extends React.Component {
 		})
 	}
 
+	componentWillMount() {
+			this.callAPI()
+	}
+
 	render () {
 		if (this.state.dataList.length === 0){
-			this.callAPI()
+			return (
+				<div className="buffer">
+					<CircularProgress disableShrink />
+				</div>
+			)
 		}
 		return (
 			<div className="App">
 				{this.state.dataList.map( (data) => {
-					return <Box title ={data.title} author={data.by}/>
+					return <Box title ={data.title} author={data.by} commentsId={data.kids}/>
 				})}
 			</div>
 		)

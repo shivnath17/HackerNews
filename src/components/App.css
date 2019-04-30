@@ -3,8 +3,15 @@
 	text-align: center;
 }
 body{
-	background-color: green;
+	background-color: grey;
 }
 .card {
 	width: 345px;
+}
+.buffer {
+	flex-grow: 1;
+	top:50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%, 0);
+  position: absolute;
 }
